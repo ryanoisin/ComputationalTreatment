@@ -1,0 +1,83 @@
+1
+[1] "1"
+Loading required package: iterators
+starting worker pid=17161 on localhost:11269 at 14:24:47.766
+starting worker pid=17157 on localhost:11269 at 14:24:47.771
+starting worker pid=17156 on localhost:11269 at 14:24:47.780
+starting worker pid=17165 on localhost:11269 at 14:24:47.780
+starting worker pid=17164 on localhost:11269 at 14:24:47.778
+starting worker pid=17160 on localhost:11269 at 14:24:47.784
+starting worker pid=17155 on localhost:11269 at 14:24:47.795
+starting worker pid=17153 on localhost:11269 at 14:24:47.800
+starting worker pid=17152 on localhost:11269 at 14:24:47.804
+starting worker pid=17166 on localhost:11269 at 14:24:47.806
+starting worker pid=17159 on localhost:11269 at 14:24:47.806
+starting worker pid=17162 on localhost:11269 at 14:24:47.808
+starting worker pid=17163 on localhost:11269 at 14:24:47.808
+starting worker pid=17151 on localhost:11269 at 14:24:47.811
+starting worker pid=17158 on localhost:11269 at 14:24:47.810
+starting worker pid=17154 on localhost:11269 at 14:24:47.813
+discovered package(s): 
+automatically exporting the following variables from the local environment:
+  iter, l_tx 
+explicitly exporting package(s): PanicModel
+numValues: 16, numResults: 0, stopped: TRUE
+got results for task 1
+numValues: 16, numResults: 1, stopped: TRUE
+returning status FALSE
+got results for task 2
+numValues: 16, numResults: 2, stopped: TRUE
+returning status FALSE
+got results for task 3
+numValues: 16, numResults: 3, stopped: TRUE
+returning status FALSE
+got results for task 4
+numValues: 16, numResults: 4, stopped: TRUE
+returning status FALSE
+got results for task 5
+numValues: 16, numResults: 5, stopped: TRUE
+returning status FALSE
+got results for task 6
+numValues: 16, numResults: 6, stopped: TRUE
+returning status FALSE
+got results for task 7
+numValues: 16, numResults: 7, stopped: TRUE
+returning status FALSE
+got results for task 8
+numValues: 16, numResults: 8, stopped: TRUE
+returning status FALSE
+got results for task 9
+numValues: 16, numResults: 9, stopped: TRUE
+returning status FALSE
+got results for task 10
+numValues: 16, numResults: 10, stopped: TRUE
+returning status FALSE
+got results for task 11
+numValues: 16, numResults: 11, stopped: TRUE
+returning status FALSE
+got results for task 12
+numValues: 16, numResults: 12, stopped: TRUE
+returning status FALSE
+got results for task 13
+numValues: 16, numResults: 13, stopped: TRUE
+returning status FALSE
+got results for task 14
+numValues: 16, numResults: 14, stopped: TRUE
+returning status FALSE
+got results for task 15
+numValues: 16, numResults: 15, stopped: TRUE
+returning status FALSE
+got results for task 16
+numValues: 16, numResults: 16, stopped: TRUE
+calling combine function
+evaluating call object to combine results:
+  fun(accum, result.1, result.2, result.3, result.4, result.5, 
+    result.6, result.7, result.8, result.9, result.10, result.11, 
+    result.12, result.13, result.14, result.15, result.16)
+returning status TRUE
+Warning message:
+In e$fun(obj, substitute(ex), parent.frame(), e$data) :
+  already exporting variable(s): l_tx
+[1] "Full Timing Iteration 1:"
+ elapsed 
+19614.31 
