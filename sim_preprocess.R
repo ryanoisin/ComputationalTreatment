@@ -106,9 +106,11 @@ for(i in 1:n_files){
     # Additional: If selected participant ID, save all data
     if(IDcount %in% idsel){
       baseline <- round(tmp[[j]]$out_baseline$outmat,2)
+      control <- round(tmp[[j]]$out_group1$outmat,2)
       ct <- round(tmp[[j]]$out_group2$outmat,2)
+      bt <- round(tmp[[j]]$out_group3$outmat,2)
       cbt <- round(tmp[[j]]$out_group4$outmat,2)
-      saveRDS(list(baseline = baseline, ct = ct, cbt = cbt),
+      saveRDS(list(baseline = baseline, control = control, ct = ct, bt = bt, cbt = cbt),
               file = paste0("Files/data_id",idsel[idsel == IDcount],".RDS")
       )
     } # end if sub selection

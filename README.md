@@ -1,6 +1,6 @@
 # Reproducibility ARchive
 
-Reproducibility archive for the paper Ryan, O., Haslbeck, J. M. B. \& Robinaugh ,D. J. (preprint) ""Improving Treatments for Mental Disorders using Computational Models"". [Preprint here](XXX)
+Reproducibility archive for the paper Ryan, O., Haslbeck, J. M. B. \& Robinaugh ,D. J. (preprint) "Improving Treatments for Mental Disorders using Computational Models". [Preprint here](XXX)
 
 # Overview
 
@@ -15,23 +15,7 @@ The folder `/Simulation` contains all files to reproduce the simulated treatment
 
 ## Creating Figures
 
-- `sim_preprocess.R` contains functions to map the minute-to-minute data of components to weekly symptom scores
-- `analysis_figures.R` contains the code to re-create all (results) figures in the apper
-
-
-
-
-
-# STUFF OISIN
-
-
-This repository includes the following
-
-- `/simcode/`: folder containing all scripts to run the treatment simulation. Sub-folder  `/output/`contains all raw output files of the simulation
-- `/files/` contains all processed simulation files, `outfiles.RDS` and `symptoms_out.RDS`, used in creating figures and in analyses
-- `/figures/` stores figures created by analysis files
-- `sim_preprocess.R` loads all files in `/simcode/output/`,creates `outfiles.RDS` and `symptoms_out.RDS` and saves them in `/files/`
-- `symptom_functions.R` contains helper functions to compute symptom scores from raw simulated output
-- `analysis_figures.R` creates all figures
-- `symptom_analyze.R`; TEMP: OLD FILE FOR REFERENCE
+- `sim_preprocess.R` contains functions to map the minute-to-minute data of components to weekly symptom scores, and create other processed output stored in `/Files/` 
+- `analysis_figures.R` contains the code to re-create all figures relating to the results of the simulation study
+- `example_PanicModel.R` contains code to simulate an example time series for a single individual using the panic model. This is used to create Figure 3 in the manuscript.
 
