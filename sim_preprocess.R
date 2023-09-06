@@ -136,18 +136,6 @@ saveRDS(list(out_baseline = out_baseline,
 
 # save symptom file
 
-# # move "last observation of baseline" to "first observation of treatment"
-# # this makes some later data processing easier, as we have a "week 0"
-# for(id in 1:500){
-#   for(G in 2:6){
-#     # last baseline measurement becomes "week 0" of treatment
-#     symptoms[[G]][[id]] <- rbind(symptoms$baseline[[id]][4,],
-#                                  symptoms[[G]][[id]])
-#   }
-#   # drop last week of baseline measurement from baseline period
-#   symptoms$baseline[[id]] <-  symptoms$baseline[[id]][-4,]
-# }
-
 saveRDS(symptoms, file = "Files/symptoms_out.RDS")
 
 rm(list=ls())

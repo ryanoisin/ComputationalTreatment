@@ -25,8 +25,8 @@ color.gradient <- function(x, colors=c("red","blue"), colsteps=100) {
 
 # From: sim_preprocess.R
 symplist <- readRDS("Files/symptoms_out.RDS")
-# symplist$baseline[[1]] # weekly symptoms during baseline for participant ID = 1
-# symplist$g1[[1]] # weekly symptoms during treatment for participant id =1, treatment arm CONTROL
+# symplist$baseline[[1]] # weekly symptoms during baseline participant ID = 1
+# symplist$g1[[1]] # weekly symptoms during treatment for id =1, CONTROL arm
 # g2 = cognitive
 # g3 = behavioural
 # g4 = CBT
@@ -269,14 +269,14 @@ ctids <- c(134,168)
 # read in data of individuals of interest
 # btids <- c(25,55,133,207,429)
 
-id <- 25
+id <- 168
 sel <- readRDS(paste0("Files/data_id",id,".RDS"))
 
 cols_tr <- c("black", brewer.pal(4, "Set1"))
 
 sc <- 0.9
-pdf("Figures/Fig_BTvsCBT.pdf",  width=8.5*sc, height=2*5*sc)
-
+ pdf("Figures/Fig_BTvsCBT.pdf",  width=8.5*sc, height=2*5*sc)
+# pdf("Figures/Fig_BTvsCBTv2.pdf",  width=8.5*sc, height=2*5*sc)
 
 # Get symptom data from subject
 l_symptoms_Subj<- list()
@@ -314,9 +314,9 @@ for(i in 1:4) lines(5:21, l_symptoms_Subj[[i+1]][, 6], col=cols_tr[i], lwd=lwd)
 
 # l_symptoms
 
-legend(13,13, legend=c("Control", "Cognitive Only",
-                       "Behavioral Only", "Cognitive & Behavioral"), bty="n", text.col=cols_tr)
-
+# legend(13,13, legend=c("Control", "Cognitive Only",
+#                        "Behavioral Only", "Cognitive & Behavioral"), bty="n", text.col=cols_tr)
+legend(13,13, legend=c("Behavioral Only", "Cognitive & Behavioral"), bty="n", text.col=cols_tr[c(3,4)])
 
 # -------- Arousal Schema and Escape Schema ---------------
 
@@ -355,7 +355,7 @@ mat1 <- cbind(seq(4,21,length=tlen),sel[[3]]$S)
 submat <- mat1[seq(1,nrow(mat1), by = 1440),]
 
 lines(seq(0,4,length=blen),sel$baseline[,"S"], lwd=lwd)
-for(i in 2:4) lines(seq(4,21,length=tlen),sel[[i+1]]$S, lwd=lwd, col=cols_tr[i])
+for(i in 1:4) lines(seq(4,21,length=tlen),sel[[i+1]]$S, lwd=lwd, col=cols_tr[i])
 
 ltyx <- 5
 mat1 <- cbind(seq(0,4,length=blen),sel$baseline$X)
@@ -369,7 +369,9 @@ for(i in 1:4){
   lines(submat2[,1],submat2[,2], lwd=lwd, col=cols_tr[i], lty = ltyx)
 }
 
-polygon(x=c(5.1,5.55,5.55,5.1), y =c(1.0375,1.0375,0-.1,0-.1), col = alpha("grey",0.5), lty = 0)
+ polygon(x=c(5.1,5.55,5.55,5.1), y =c(1.0375,1.0375,0-.1,0-.1), col = alpha("grey",0.5), lty = 0)
+
+# polygon(x=c(5.1,5.85,5.85,5.1), y =c(1.0375,1.0375,0-.1,0-.1), col = alpha("grey",0.5), lty = 0)
 
 legend(12.5,0.775, legend=c("Arousal Schema","Escape Schema"), bty="n", col = "black",
 lty = c(1,ltyx))
