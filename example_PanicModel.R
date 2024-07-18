@@ -27,27 +27,19 @@ treatment_days <- max(unlist(lapply(tx, max)))
 
 # ----- Simulate from Panic Model -----
 
-# Fill in last values from above:
-last_row <- out_base$outmat[nrow(out_base$outmat), ]
-initial_specified <- list("S" = last_row$S,
-                          "A" = last_row$A,
-                          "PT" = last_row$PT,
-                          "E" = last_row$E,
-                          "X" = last_row$X)
-
 # Simulate
 total_days <- treatment_days + 2*7 # treatment + two-week follow up
 time <- total_days*60*24 # full treatment period
 n_weeks_T <- total_days/7
 
-set.seed(2)
-out_treat <- simPanic(time = 1:time,
-                      stepsize = .001,
-                      initial = initial_specified,
-                      tx = tx)
-results_treat <- out_treat$outmat
-
+# # COMMENTED OUT AND LOADED FROM FILE ON LINE 43
+# set.seed(2)
+# out_treat <- simPanic(time = 1:time,
+#                       stepsize = .001,
+#                       initial = list("S" = 1, "X" = 0), # Maximum severity
+#                       tx = tx)
 # saveRDS(out_treat, file="Files/data_treat_1w_baseline_2w_followup.RDS")
+
 out_treat <- readRDS(file="Files/data_treat_1w_baseline_2w_followup.RDS")
 
 SimTreat <- out_treat$outmat

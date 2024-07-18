@@ -7,6 +7,9 @@
 # this file loads simulated output objects and creates the figures and calculations in main text
 # those are Figures 3 -8
 
+library(devtools)
+# install_github("jmbh/PanicModel")
+
 library(PanicModel)
 library(RColorBrewer)
 library(scales)
@@ -92,7 +95,8 @@ dev.off()
 
 # Some settings
 v_mtexts <- c("Control Group", "Cognitive Only",
-              "Behavioral Only", "Cognitive & Behavioral", "Cognitive & Behavioral +")
+              "Behavioral Only", "Cognitive & Behavioral",
+              "Revised Cognitive & Behavioral Protocol")
 alpha_val <- 0.3
 
 
@@ -378,6 +382,7 @@ lty = c(1,ltyx))
 
 dev.off()
 
+
 # --------------------------------------------------------------------------- #
 # --------------------------------- Figure 7 -------------------------------- #
 # --------------------------------------------------------------------------- #
@@ -388,12 +393,12 @@ outall <- readRDS("Files/outfiles.RDS")
 heter <- outall$heter
 
 # Make plot
-sc <- 1.3
-pdf(paste0("figures/Fig_heter_twopanel.pdf"),height=sc*4*0.9,width=sc*8.5)
+sc <- 1
+pdf(paste0("figures/Fig_heter_twopanel.pdf"), height=sc*4, width=sc*8.9)
 par(mfrow = c(1,2))
 
 # Make Layout
-layout(matrix(1:3, ncol=3), widths = c(1,1,.2))
+layout(matrix(1:3, ncol=3), widths = c(1, 1, 0.3))
 
 # --- Panel 1: Data ---
 AS_change_col <- (symd$change$ct / symd$pre$ct[[2]])
@@ -403,8 +408,8 @@ grad <- alpha(grad, .75)
 par(mar = c(6, 5, 5, 3))
 plot.new()
 plot.window(xlim = c(0, .75), ylim = c(0.5, 1))
-axis(1, at = seq(0, .75, .25))
-axis(2, at = seq(0.5, 1, .25), las = 2)
+axis(1, c(0., 0.25, 0.5, 0.75))
+axis(2, c(0.5, 0.75, 1), las = 2)
 mtext("Belief in Psychoeducation", side = 1, line = 3,cex=1)
 mtext("Prior Arousal Schema", side = 2, line = 3,srt=0,cex=1)
 cex.p <- 1.4
@@ -419,8 +424,8 @@ grad <- alpha(grad, .75)
 par(mar = c(6, 5, 5, 3))
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1))
-axis(1, at = seq(0, 1, .25))
-axis(2, at = seq(0, 1, .25), las = 2)
+axis(1, at = seq(0, 1, length=5))
+axis(2, at = seq(0, 1, length=5), las = 2)
 mtext("Quantity of Exposure", side = 1, line = 3,cex=1)
 mtext("Quality of Exposure", side = 2, line = 3,srt=0,cex=1)
 points(heter$I4Adh, heter$I4RdEs, pch = 20, col = grad, cex = cex.p)
@@ -434,8 +439,8 @@ plot.window(xlim = c(0, 1), ylim = c(0, 1))
 shift <- -0.1
 legend_image <- as.raster(matrix(color.gradient(rev(seq(0,1,.1))), ncol=1))
 rasterImage(legend_image, 1.1-1+0.2+shift, .25, 1.125-1+0.2+0.2+shift,.75)
-text(1.1175-1+0.3 + shift,.8,"100%\nImprovement",cex=1)
-text(1.1175-1+0.3 + shift,.2,"0%\nImprovement",cex=1)
+text(1.1175-1+0.3 + shift,.8,"100%\nImprovement", cex = 1.1)
+text(1.1175-1+0.3 + shift,.2,"0%\nImprovement", cex = 1.1)
 dev.off()
 
 
